@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: "Roboto", sans-serif;
+  margin:0;
+}
+
+.usa-alert {
+    font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+    font-size: 1.06rem;
+    line-height: 1.5;
+    background-color: #f0f0f0;
+    background-position: 1.75rem 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    padding: 1.25rem 1.25rem 1rem 1.75rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.usa-alert img {
+  padding-left:10%;
+
+}
+.usa-alert__body {
+  max-width: 650px;
+  margin:auto;
+  display:inline-block;
+  margin-left:10px;
+}
+
+.section-intro {
+  max-width: 650px;
+  margin:auto;
+}
+
+/*accordions*/
+.usa-accordion {
+    list-style-type: none;
+    color: #1b1b1b;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 1.06rem;
+    line-height: 1.5;
+}
+.usa-accordion__button {
+    -moz-osx-font-smoothing: auto;
+    -webkit-font-smoothing: subpixel-antialiased;
+    border: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 0;
+    text-align: left;
+    background-image: url(../img/minus.svg),-webkit-gradient(linear,left top,left bottom,from(transparent),to(transparent));
+    background-image: url(../img/minus.svg),linear-gradient(transparent,transparent);
+    background-repeat: no-repeat;
+    background-color: #f0f0f0;
+    background-position: right 1.25rem center;
+    background-size: 1rem;
+    color: #1b1b1b;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    margin: 0;
+    padding: 1rem 3.5rem 1rem 1.25rem;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+  background-color:#f2f2f2;
+  margin-right:5px solid black;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.sidenav a:before {
+  content: "";
+    display: inline-block;
+    background-color: darkblue;
+    width: 14px;
+    height: 14px;
+    margin-right:3px;
+}
+.sidenav h2 {
+  padding: 6px 8px 6px 16px;
+}
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: black;
+  transform: translateX(10px);
+  transition: .25s;
+}
+
+/* Main content */
+.main {
+  margin-left: 250px; /* Same as the width of the sidenav */
+  font-size: 16px; /* Increased text to enable scrolling */
+}
+.main > * {
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: green;
+  color: white;
+}
+
+/* Hero styling */
+.hero {
+  height: 250px;
+  background-color: lightblue;
+  padding: 0;
+  background-image: url(https://opensourcemedicalsupplies.org/wp-content/uploads/2020/06/home_gradienblue.jpg);
+  color:white;
+}
+.hero-copy {
+  padding-top:60px;
+  max-width:650px;
+  margin:auto;
+  vertical-align: center;
+}
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.section-body {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.section-head {
+  background-color:darkblue;
+  padding:30px;
+  color:white;
+  text-align:center;
+  margin:20px auto;
+  background-image: url(https://images.unsplash.com/photo-1586216583605-711f98064249);
+}
+.cta-btn {
+  background-color:#f66e0b;
+  color:white;
+  border-radius:6px;
+  padding: 8px 26px;
+  text-decoration: none;
+}
+li {
+  margin-bottom:3px;
+}
+.icon-number > * {
+  background-color: lightblue;
+  height:40px;
+  width:40px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius:100%;
+  padding:10px;
+  line-height: 40px;
+}
+.icon-img img {
+  height:40px;
+  width:40px;
+  color:white;
+  margin:auto;
+  background-color: lightblue;
+  padding:10px;
+  border-radius: 100%;
+  overflow: visible;
+}
+.icon-img {
+  overflow: visible;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <img src="https://opensourcemedicalsupplies.org/wp-content/uploads/2020/06/OSMS-logo-stacked_1.svg">
+  <h2 style=>Local Resource Guide</h2>
+  <a href="#mission">Shared Mission & Priorities</a>
+  <a href="#culture">Culture & Approach</a>
+  <a href="#groups">Finding & Creating Groups</a>
+  <a href="#branding">OSCMS Branding</a>
+  <a href="#roles">Group Roles & Functions</a>
+  <a href="#outreach">Outreach Guidance</a>
+  <a href="#organizing">Organizing Tools</a>
+  <a href="#community-mgmt">Community Management</a>
+  <a href="#infosec">Information Security</a>
+  <a href="#fundraising">Fundraising</a>
+  <a href="#purchasing">Purchasing PPE</a>
+  <a href="#reporting">Reporting Documentation</a>
+  <a href="#resources">Resource Links</a>
+</div>
+
+<div class="main">
+  <div class="hero">
+    <div class="hero-copy">
+      <h6">Open Source Medical Supplies</h6>
+      <h1>Local Resource Guide</h1>
+    </div>
+  </div>
+  
+  <div class="usa-alert usa-alert--info" >
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMGMtNi42MjcgMC0xMiA1LjM3My0xMiAxMnM1LjM3MyAxMiAxMiAxMiAxMi01LjM3MyAxMi0xMi01LjM3My0xMi0xMi0xMnptLTIuMDMzIDE2LjAxYy41NjQtMS43ODkgMS42MzItMy45MzIgMS44MjEtNC40NzQuMjczLS43ODctLjIxMS0xLjEzNi0xLjc0LjIwOWwtLjM0LS42NGMxLjc0NC0xLjg5NyA1LjMzNS0yLjMyNiA0LjExMy42MTMtLjc2MyAxLjgzNS0xLjMwOSAzLjA3NC0xLjYyMSA0LjAzLS40NTUgMS4zOTMuNjk0LjgyOCAxLjgxOS0uMjExLjE1My4yNS4yMDMuMzMxLjM1Ni42MTktMi40OTggMi4zNzgtNS4yNzEgMi41ODgtNC40MDgtLjE0NnptNC43NDItOC4xNjljLS41MzIuNDUzLTEuMzIuNDQzLTEuNzYxLS4wMjItLjQ0MS0uNDY1LS4zNjctMS4yMDguMTY0LTEuNjYxLjUzMi0uNDUzIDEuMzItLjQ0MiAxLjc2MS4wMjIuNDM5LjQ2Ni4zNjcgMS4yMDktLjE2NCAxLjY2MXoiLz48L3N2Zz4=">
+    <div class="usa-alert__body">
+      <h3 class="usa-alert__heading">Version 1.1, updated 4/8/2020</h3>
+      <p class="usa-alert__text">New sections for Culture & Approach, Fundraising, Purchasing, Documentation & Reporting: Expanded Resource Links</p>
+    </div>
+  </div>
+  <div class="section-intro">
+    <h2>This is a best-practices guide for local teams and individuals working to produce and distribute open-source PPE and medical devices.</h2>
+    <p>This guide is intended to provide help and answer common questions, but should not be seen as rigid, prescriptive or comprehensive. We recognize that the current version is USA-centric; we’re working to translate and localize this guide for teams in other countries.</p>
+
+    <p>If you are interested in joining or creating a local response group, please:
+      <ol>
+        <li>Read this guide</li>
+        <li>Follow the instructions for <a href="">Finding and Creating Groups</a></li>
+      </ol>
+
+    <p>THANK YOU for your efforts! Hundreds of thousands of locally-manufactured items have already been delivered to institutions in need (see the OSMS weekly survey results). Local response is evolving daily, and we will be updating this resource guide regularly.</p>
+    <a class="cta-btn" href="">See the Results</a>
+
+  </div>
+  <div class="section-head"><a name="mission"><h2>Need-to-Know Information: Our Shared Mission and Priorities</h2></a></div>
+  <div class="section-body"><p>The novel coronavirus disease, COVID-19, has been classified as a pandemic as it continues to spread globally in an exponential fashion. Significant shortages of necessary medical equipment and supplies are occurring as the demand for these items increases and interruptions in the global supply chain increase exponentially.</p>  
+    <p>Fundamental supplies facing shortages include personal protective equipment (PPE; e.g. gloves, goggles, surgical masks, face shields, respirators, gowns, and disinfectant) as well as the equipment required to treat critically ill patients, such as ventilators and oxygen concentrators. The lack of supplies poses a threat to both patients suffering from COVID-19 and the healthcare workers treating them.</p> 
+    <p>OSMS urges makers and professional fabricators alike to utilize their production capabilities to produce the supplies and equipment so desperately needed in the global fight against COVID-19. We are thrilled to have local organizers join us, on the ground, to help fill gaps in the medical supply chain.</p>
+    <h3>OSMS exists to meet the following needs, which are integral to our mission:</h3>
+    <ul>
+      <li>Cataloging and portraying the issues around COVID-19 in a robust way while providing current and accurate information, dispelling misinformation, and maintaining cybersecurity.</li>
+      <li>Finding and evaluating open source medical supply solutions and amplifying/sharing them as widely as possible.</li>
+      <li>Connecting with relevant communities (i.e. hospital systems in need, fabrication groups, design groups, philanthropy, etc.) and bringing them together to coordinate effectively and resiliently.</li>
+      <li>Understanding the prevalence of COVID-19 in real-time to provide accurate statistical insights as a complement to raw data.</il> 
+      <li>Helping orchestrate local, distributed responses throughout communities around the globe to respond to outbreaks and shortages of necessary medical equipment and supplies through relationship building, communications strategy, marketing initiatives, and the organization of local responders.</li>
+    </ul>
+    <h3>This is a global supply chain crisis. The scale of what is needed is massive.</h3>
+    <p>Needs range from hospitals requiring hundreds of thousands of items per day down to vulnerable, individual community members seeking supplies to help them safely conduct their activities of daily living.</p> 
+    <p>Awareness of these issues varies enormously between different regions, and even different areas in the same region. Many areas (rural hospitals, nursing homes, homeless shelters, etc.) are already without vital supplies, and have been for some time. In other areas, valuable resources continue to be wasted or thrown away due to a lack of awareness around the scale of this issue. Education is a critical component of your local organizing work.</p>
+    <p>As regional / local organizers, we need to seek large-scale solutions to the large-scale problems, while at the same time directing small-scale makers to the small-scale projects where they can have a meaningful impact.</p></div>
+  <div class="section-head"><a name="culture"><h2>Culture and Approach</h2></a></div>
+  <div class="section-body">
+    <p>As we all work together to tackle COVID-19, there is a need for an open-minded, thoughtful and collaborative response. From our experience the best teams function by embracing a culture where:</p>
+    <div class=icon-img><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEuNTc5IDkuNTE2Yy4yNDItLjI0My42MzktLjI0NS44ODMgMCAuMjQ0LjI0NC4yNDMuNjQxIDAgLjg4NC0uMjQ0LjI0NS0uNjQxLjI0NS0uODg1LjAwMS0uMjQ0LS4yNDUtLjI0My0uNjQuMDAyLS44ODV6bS0yLjA2MyAyLjA2M2MuMjQ0LS4yNDQuNjQtLjI0NS44ODQgMCAuMjQ0LjI0NC4yNDQuNjQgMCAuODg0cy0uNjQxLjI0NC0uODg0IDBjLS4yNDUtLjI0NS0uMjQ1LS42NCAwLS44ODR6bTMuOTc3IDEuOTE0Yy0uODI1LjgyNS0xLjk4Ljg5My0yLjgxOC43MTh2LS4yOWMuNzk3LS4wOTQgMS41MDQtLjM2NyAyLjE5MS0xLjA1NS42ODgtLjY4Ny45Ni0xLjM5MyAxLjA1NC0yLjE5aC4yOWMuMTc1LjgzOC4xMDcgMS45OTItLjcxNyAyLjgxN3ptOC4xNDktMTEuMTY1Yy0xLjY0Ni0xLjY0NS0zLjI5Ny0yLjMyOC00LjY2Ny0yLjMyOC0uOTcyIDAtMS44MDEuMzQzLTIuMzg4LjkzbC0xMy42NTcgMTMuNjU3Yy0uNTg3LjU4Ni0uOTMgMS40MTYtLjkzIDIuMzg4IDAgMS4zNy42ODMgMy4wMjEgMi4zMjggNC42NjcgMS42NjkgMS42NjggMy4zMzIgMi4zNTggNC43MDcgMi4zNTguOTcgMCAxLjc5Ni0uMzQzIDIuMzgxLS45MjhsMTMuNjU2LTEzLjY1NmMuNTg1LS41ODUuOTI4LTEuNDExLjkyOC0yLjM4MSAwLTEuMzc1LS42OS0zLjAzOC0yLjM1OC00LjcwN3ptLTEuNDE0IDEuNDE0YzEuODQ4IDEuODQ4IDIuMTE2IDMuNTc0IDEuNDMxIDQuMjZsLTIuODI5IDIuODI4LTUuNjU2LTUuNjU2IDIuODI4LTIuODI5Yy42ODUtLjY4NiAyLjM5OS0uNDI5IDQuMjI2IDEuMzk3em0tMi44MTMgOC41MDJsLTUuMTcxIDUuMTcxLTUuNjU2LTUuNjU2IDUuMTcxLTUuMTcxIDUuNjU2IDUuNjU2em0tMTMuNjczIDcuOTg0Yy0xLjgyNi0xLjgyNi0yLjA4My0zLjU0MS0xLjM5Ny00LjIyN2wyLjgyOS0yLjgyOCA1LjY1NiA1LjY1Ni0yLjgyOCAyLjgyOWMtLjY4Ni42ODYtMi40MTIuNDE3LTQuMjYtMS40M3ptMS45NjEtNC4wNWMtLjI5My4yOTMtLjc2OC4yOTMtMS4wNjEgMHMtLjI5My0uNzY4IDAtMS4wNjFjLjI5My0uMjkyLjc2OC0uMjkzIDEuMDYxIDBzLjI5My43NjkgMCAxLjA2MXptMy4xODMgMi4xMjJjLS4yOTMtLjI5My0uNzY5LS4yOTMtMS4wNjEgMC0uMjkzLjI5My0uMjkzLjc2OCAwIDEuMDYxLjI5Mi4yOTIuNzY4LjI5MyAxLjA2MSAwIC4yOTItLjI5NC4yOTItLjc2OSAwLTEuMDYxem0tMS41OTEtMS41OTJjLS4yOTMtLjI5My0uNzY5LS4yOTMtMS4wNjEgMC0uMjkzLjI5My0uMjkzLjc2OCAwIDEuMDYxcy43NjguMjkzIDEuMDYxIDBjLjI5Mi0uMjkzLjI5My0uNzY4IDAtMS4wNjF6bS0zLjAwNi44ODVjLS4yOTMuMjkyLS43NjguMjkzLTEuMDYxIDBzLS4yOTMtLjc2OSAwLTEuMDYxYy4yOTMtLjI5My43NjgtLjI5MyAxLjA2MSAwcy4yOTMuNzY4IDAgMS4wNjF6bTMuMTgyIDIuMTIxYy0uMjkzLS4yOTMtLjc2OC0uMjkzLTEuMDYxIDAtLjI5Mi4yOTMtLjI5My43NjggMCAxLjA2MXMuNzY5LjI5MyAxLjA2MSAwYy4yOTMtLjI5NC4yOTMtLjc2OCAwLTEuMDYxem0tMS41OTEtMS41OTJjLS4yOTItLjI5Mi0uNzY4LS4yOTMtMS4wNjEgMC0uMjkyLjI5My0uMjkyLjc2OSAwIDEuMDYxLjI5My4yOTMuNzY5LjI5MyAxLjA2MSAwIC4yOTMtLjI5My4yOTMtLjc2OCAwLTEuMDYxem0xMS43MTMtMTMuODMzYy0uMjkzLjI5My0uNzY4LjI5My0xLjA2MSAwcy0uMjkzLS43NjggMC0xLjA2MWMuMjkyLS4yOTMuNzY4LS4yOTMgMS4wNjEgMHMuMjkyLjc2OCAwIDEuMDYxem0zLjE4MSAyLjEyMWMtLjI5My0uMjkzLS43NjgtLjI5Mi0xLjA2MSAwLS4yOTMuMjkzLS4yOTMuNzY4IDAgMS4wNjFzLjc2OC4yOTMgMS4wNjEgMGMuMjkzLS4yOTIuMjkzLS43NjggMC0xLjA2MXptLTEuNTkxLTEuNTkxYy0uMjkyLS4yOTItLjc2OC0uMjkyLTEuMDYxIDAtLjI5My4yOTMtLjI5Mi43NjkgMCAxLjA2MS4yOTMuMjkzLjc2OC4yOTMgMS4wNjEgMCAuMjkzLS4yOTIuMjkzLS43NjggMC0xLjA2MXptLTMuMDA1Ljg4NGMtLjI5Mi4yOTMtLjc2OC4yOTMtMS4wNjEgMHMtLjI5Mi0uNzY4IDAtMS4wNjFjLjI5My0uMjkzLjc2OS0uMjkzIDEuMDYyIDBzLjI5Mi43NjgtLjAwMSAxLjA2MXptMy4xODIgMi4xMjFjLS4yOTMtLjI5My0uNzY4LS4yOTItMS4wNjEuMDAxLS4yOTMuMjkyLS4yOTMuNzY4IDAgMS4wNjEuMjkyLjI5Mi43NjguMjkyIDEuMDYxIDAgLjI5My0uMjkzLjI5My0uNzY5IDAtMS4wNjJ6bS0xLjU5MS0xLjU5MWMtLjI5Mi0uMjkyLS43NjgtLjI5Mi0xLjA2MS4wMDEtLjI5My4yOTItLjI5My43NjggMCAxLjA2MXMuNzY4LjI5MiAxLjA2MSAwYy4yOTMtLjI5My4yOTMtLjc2OSAwLTEuMDYyeiIvPjwvc3ZnPg=="></div>
+    <h3>Self care is a priority.</h3>
+    <p>A core tenant of our work is rooted in the belief that you must first care for yourself, then care for your family and loved ones, and then ultimately everything else. In this critical time, COVID-19 will impact our lives in many different ways, so it’s key to check for your personal safety so the incredible work you’re doing can continue.</p>
+    <div class="icon-img"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yNCAxOWgtMXYtMi4yYy0xLjg1MyA0LjIzNy02LjA4MyA3LjItMTEgNy4yLTYuNjIzIDAtMTItNS4zNzctMTItMTJoMWMwIDYuMDcxIDQuOTI5IDExIDExIDExIDQuNjYgMCA4LjY0Ny0yLjkwNCAxMC4yNDktN2gtMi4yNDl2LTFoNHY0em0tMTEuMDM2IDBoLTEuODg2Yy0uMzQtLjk1Ny0uNDM3LTEuNTcxLTEuMTc3LTEuODc4aC0uMDAxYy0uNzQzLS4zMDgtMS4yNTEuMDYxLTIuMTYyLjQ5NGwtMS4zMzMtMS4zMzNjLjQyNy0uODk5LjgwNC0xLjQxNS40OTQtMi4xNjMtLjMwOC0uNzQtLjkyNi0uODM5LTEuODc4LTEuMTc3di0xLjg4NmMuOTU0LS4zMzkgMS41Ny0uNDM3IDEuODc4LTEuMTc4LjMwOC0uNzQzLS4wNi0xLjI0OC0uNDk0LTIuMTYybDEuMzMzLTEuMzMzYy45MTguNDM2IDEuNDIxLjgwMSAyLjE2Mi40OTRsLjAwMS0uMDAxYy43NC0uMzA3LjgzOC0uOTI0IDEuMTc3LTEuODc3aDEuODg2Yy4zNC45NTguNDM3IDEuNTcgMS4xNzcgMS44NzdsLjAwMS4wMDFjLjc0My4zMDggMS4yNTItLjA2MiAyLjE2Mi0uNDk0bDEuMzMzIDEuMzMzYy0uNDM1LjkxNy0uODAxIDEuNDIxLS40OTQgMi4xNjF2LjAwMWMuMzA3LjczOS45MTUuODM1IDEuODc4IDEuMTc4djEuODg2Yy0uOTUzLjMzOC0xLjU3MS40MzctMS44NzggMS4xNzgtLjMwOC43NDMuMDYgMS4yNDkuNDk0IDIuMTYybC0xLjMzMyAxLjMzM2MtLjkyLS40MzgtMS40Mi0uODAyLTIuMTU3LS40OTYtLjc0Ni4zMS0uODQ0LjkyNi0xLjE4MyAxLjg4em0tLjk0My00LjY2N2MtMS4yODkgMC0yLjMzMy0xLjA0NC0yLjMzMy0yLjMzMyAwLTEuMjg5IDEuMDQ0LTIuMzM0IDIuMzMzLTIuMzM0IDEuMjg5IDAgMi4zMzMgMS4wNDUgMi4zMzMgMi4zMzQgMCAxLjI4OS0xLjA0NCAyLjMzMy0yLjMzMyAyLjMzM3ptLTguMDIxLTUuMzMzaC00di00aDF2Mi4yYzEuODUzLTQuMjM3IDYuMDgzLTcuMiAxMS03LjIgNi42MjMgMCAxMiA1LjM3NyAxMiAxMmgtMWMwLTYuMDcxLTQuOTI5LTExLTExLTExLTQuNjYgMC04LjY0NyAyLjkwNC0xMC4yNDkgN2gyLjI0OXYxeiIvPjwvc3ZnPg=="></div>
+    <h3>There is a bias towards action (do-ocracy).</h3> 
+    <p>Those who take initiative to do work for the community can decide how they do that work. If any community members hold serious concerns, they can start a proposal to halt what someone is doing. <a href="">Learn more about a do-ocracy</a></p> 
+    
+  
+    <div class="icon-img"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xNS45OTYgMjRoLTEyLjYwNXMuNzM0LTMuOTMxLjYzMy01LjY4NmMtLjA0MS0uNzI0LS4xNjEtMS40NzQtLjU0LTIuMTA0LS42NDUtMS0yLjYzNi0zLjcyLTIuNDc1LTcuNDMuMjI0LTUuMjA5IDQuNjkzLTguNzc5IDEwLjEyNi04Ljc3OSA1LjA5OCAwIDguNTA3IDMuMDAxIDkuODU4IDcuNDgzLjMyOCAxLjA3OS4zMTEgMS41NDEtLjE1MSAyLjYwN2wtLjAwNi4wMTMgMS43NTEgMi4xNDJjLjI2LjM4MS40MTMuNzkxLjQxMyAxLjIzOSAwIC41NDctLjIzMyAxLjA0NS0uNjEgMS4zOTktLjM2OC4zNDUtLjc2Ny40NTItMS4yNDguNjQyIDAgMC0uNTc2IDIuNTkyLS44NzMgMy4yOTEtLjcgMS42NDMtMS45NyAxLjY1OS0yLjk3IDEuODQ5LS4zOTQuMDgzLS40OS4xMzMtLjY4MS42ODEtLjIwOC41OTEtLjM2MyAxLjQzNS0uNjIyIDIuNjUzem0tNC44NDItMjJjLTQuMjg1LjA0OC03Ljc0IDIuNTQ4LTguMTIxIDYuNDg4LS4xOTIgMS45OTEuNDYzIDMuOTg2IDEuNTE2IDUuNzA1LjYxMSAxIDEuMzA1IDEuNTkyIDEuNDY0IDMuODc1LjA5MSAxLjMxMy0uMDUgMi42MzYtLjI0MSAzLjkzMmg4LjYwNGMuMTQxLS42NDUuMzUtMS40ODUuNjg3LTIuMDU3LjQ0OS0uNzY2IDEuMDk3LTEuMDk5IDEuOTI2LTEuMjU0LjgzOC0uMTQ4IDEuMjM4LS4wNTkgMS40ODktLjc4NS4yMTItLjU3OS42MTItMi4yMjEuODMxLTMuOTAyIDEuMjAzLS4zMzUuNjEyLS4xNjEgMS42NzEtLjU1OS0uMjA2LS4yMzQtMS45MTgtMi4zMTQtMi4wNDUtMi42LS4zMzYtLjc1OS0uMDQ2LTEuMTkuMjI1LTEuOTEzLjA4Ni0uMjUxLjA2LS4zNTctLjAwOS0uNjEzLTEuMDQ5LTMuOTQ5LTMuODkxLTYuMzE3LTcuOTk3LTYuMzE3em0uMDYzIDE0aC0uNDQ3Yy0uMTE3IDAtLjIzMS0uMDM5LS4zMDgtLjEwOWwtLjU5NC0uMzkxaDIuMjVsLS41OTQuMzkxYy0uMDc2LjA2OS0uMTg5LjEwOS0uMzA3LjEwOXptLjkyMi0xaC0yLjI3OWMtLjEzOCAwLS4yNS0uMTExLS4yNS0uMjUgMC0uMTM4LjExMi0uMjUuMjUtLjI1aDIuMjc5Yy4xMzggMCAuMjUuMTEyLjI1LjI1cy0uMTExLjI1LS4yNS4yNXptLTEuMzIyLS45ODZoLTEuNDE0Yy0uMDEzLTIuNTctMS40MDMtMi44NzgtMS40MDMtNC42NDcgMC0xLjY5NSAxLjMyNy0yLjg1MiAzLTIuODUyaC4wMmMxLjY2My4wMDkgMi45OCAxLjE2MyAyLjk4IDIuODUyIDAgMS43NjktMS4zOTEgMi4wNzctMS40MDQgNC42NDdoLTEuNDE0YzAtMi43MzUgMS4zMTgtMy42MTQgMS4zMTgtNC42NTEgMC0uODU2LS42OTQtMS4zMzMtMS41LTEuMzQ4aC0uMDE5Yy0uNzk4LjAyMi0xLjQ4MS40OTktMS40ODEgMS4zNDggMCAxLjAzNyAxLjMxNyAxLjkxNiAxLjMxNyA0LjY1MXptNC4wNTMtMy42MjhsMS4zNDkuNjEyLS40MTQuOTExLTEuMjk4LS41ODljLjE1MS0uMy4yNzYtLjYwNy4zNjMtLjkzNHptLTcuNzM5IDBjLjA4Ni4zMzIuMjA4LjYzLjM1OS45MzVsLTEuMjk2LjU4OC0uNDEzLS45MTEgMS4zNS0uNjEyem05LjM2OS0uODg2aC0xLjUwMWMuMDEtLjMzNS0uMDIxLS42NzItLjA5My0xaDEuNTk0djF6bS05LjQ5OSAwaC0xLjUwMXYtMWgxLjU5M2MtLjA3MS4zMjctLjEwMS42NjMtLjA5Mi45OTh2LjAwMnptNy4wMi0yLjcxNGwxLjI0My0uODgxLjU3OS44MTUtMS4yNTIuODg5Yy0uMTQ3LS4yOTEtLjMzNi0uNTY2LS41Ny0uODIzem0tNi4wNDMgMGMtLjIzLjI1MS0uNDE4LjUyNS0uNTY5LjgyMmwtMS4yNTEtLjg4OC41NzgtLjgxNSAxLjI0Mi44ODF6bTQuNDM1LTEuMDQ2bC42NjMtMS4zNDUuODk2LjQ0Mi0uNjYzIDEuMzQ1Yy0uMjc4LS4xODMtLjU4MS0uMzMyLS44OTYtLjQ0MnptLTIuODI2LS4wMDFjLS4zMTYuMTEtLjYxOC4yNTgtLjg5Ny40NDJsLS42NjMtMS4zNDQuODk3LS40NDIuNjYzIDEuMzQ0em0xLjkxMy0uMjA4Yy0uMzM0LS4wMzktLjY1NC0uMDQxLTEtLjAwMnYtMS41MjloMXYxLjUzMXoiLz48L3N2Zz4="></div>
+    <h3>Local insight is respected.</h3> 
+    <p>To best address the needs of your community, start by having a conversation with the people on the ground dealing with the realities of COVID-19. Local needs supercede any high level guidance we can give you.</p> 
+    
+    <div class="icon-img"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xLjk4MSA4LjQ0NGgyMC4wMzhjLjM5OCAwIC43NDcuMjY0Ljg1Ni42NDhsMS4xMDUgMy45MDQuMDIuMTM5YzAgLjIwOS0uMTI3LjQwMi0uMzMuNDhsLS4wMDEuMDAxYy0uMjQuMDkyLS41MTEtLjAwNS0uNjM1LS4yMzFsLTEuMTQ0LTIuMDcxLS4zMjggNy45NjdjLS4wMTcuNDAzLS4zNDcuNzE5LS43NDkuNzE5aC0uMDAxYy0uMzkzIDAtLjcxNi0uMzA2LS43NDYtLjY5OC0uMDY4LS44NjUtLjI0OS0yLjkzMy0uMzA0LTMuNzUyLS4wMjItLjM0LS4yNzEtLjU0LS41NDEtLjU0LS4yNDIgMC0uNTE0LjItLjUzNy41NC0uMDU1LjgxOS0uMjM2IDIuODg3LS4zMDQgMy43NTItLjAzLjM5Mi0uMzUyLjY5OC0uNzQ2LjY5OGgtLjAwMWMtLjQwMiAwLS43MzItLjMxNi0uNzQ5LS43MTktLjA4Ni0yLjA4LS40MzUtOC43MzYtLjQzNS04LjczNmgtMS42NjlzLS4zNDkgNi42NTYtLjQzNSA4LjczNmMtLjAxNy40MDItLjM0Ny43MTktLjc0OS43MTloLS4wMDFjLS4zOTQgMC0uNzE2LS4zMDYtLjc0Ni0uNjk4LS4wNjgtLjg2NS0uMjQ5LTIuOTMzLS4zMDQtMy43NTItLjAyMy0uMzQtLjI5NS0uNTQtLjUzNy0uNTRoLS4wMDRjLS4yNDIgMC0uNTE1LjItLjUzNy41NC0uMDU1LjgxOS0uMjM2IDIuODg3LS4zMDQgMy43NTItLjAzLjM5Mi0uMzUzLjY5OC0uNzQ2LjY5OGgtLjAwMWMtLjQwMiAwLS43MzItLjMxNi0uNzQ5LS43MTktLjA4Ni0yLjA4LS40MzUtOC43MzYtLjQzNS04LjczNmgtMS42ODFzLS4zNDkgNi42NTYtLjQzNSA4LjczNmMtLjAxNy40MDMtLjM0Ny43MTktLjc0OS43MTloLS4wMDFjLS4zOTQgMC0uNzE2LS4zMDYtLjc0Ni0uNjk4LS4wNjgtLjg2NS0uMjQ5LTIuOTMzLS4zMDQtMy43NTItLjAyMy0uMzQtLjI5NS0uNTQtLjUzNy0uNTQtLjI3IDAtLjUxOS4yLS41NDEuNTQtLjA1NS44MTktLjIzNiAyLjg4Ny0uMzA0IDMuNzUyLS4wMy4zOTItLjM1My42OTgtLjc0Ni42OThoLS4wMDFjLS40MDIgMC0uNzMyLS4zMTYtLjc0OS0uNzE5bC0uMzI4LTcuOTY3LTEuMTQ0IDIuMDcxYy0uMTI0LjIyNi0uMzk1LjMyMy0uNjM1LjIzMWwtLjAwMS0uMDAxYy0uMjAzLS4wNzgtLjMzLS4yNzEtLjMzLS40OGwuMDItLjEzOSAxLjEwNS0zLjkwNGMuMTA5LS4zODQuNDU4LS42NDguODU2LS42NDh6bTMuMDE5LTQuNDQ0YzEuMTA0IDAgMiAuODk2IDIgMnMtLjg5NiAyLTIgMi0yLS44OTYtMi0yIC44OTYtMiAyLTJ6bTE0IDBjLTEuMTA0IDAtMiAuODk2LTIgMnMuODk2IDIgMiAyIDItLjg5NiAyLTItLjg5Ni0yLTItMnptLTYuOTk0IDBjMS4xMDQgMCAyIC44OTYgMiAycy0uODk2IDItMiAyLTItLjg5Ni0yLTIgLjg5Ni0yIDItMnoiLz48L3N2Zz4="></div>
+    <h3>Inclusiveness is required.</h3>
+    <p>Set a tone for collaboration and increased participation. Stop and spend a moment to consider how to onboard, orient and empower new members of your team before it grows too large. See Resource Links for one Local Response group’s onboarding doc. If you must exclude people, exclude them because they are actively dangerous to the community, or are impeding efforts to help.</p>
+    
+    <div class="icon-img"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjAgM2MwLTEuNjU3LTEuMzQ0LTMtMy0zcy0zIDEuMzQzLTMgM2MwIC4zMTIuMDYxLjYwNi4xNDkuODg5bC00LjIxIDMuMTU3Yy40NzMuNDcxLjg3OCAxLjAxIDEuMjAxIDEuNTk5bDQuMTk3LTMuMTQ4Yy40NzcuMzE2IDEuMDQ4LjUwMyAxLjY2My41MDMgMS42NTYgMCAzLTEuMzQzIDMtM3ptLTIgMGMwIC41NTEtLjQ0OCAxLTEgMXMtMS0uNDQ5LTEtMSAuNDQ4LTEgMS0xIDEgLjQ0OSAxIDF6bTMgMTIuMDYyYzEuNjU2IDAgMy0xLjM0MyAzLTNzLTEuMzQ0LTMtMy0zYy0xLjI4MSAwLTIuMzY3LjgwNy0yLjc5NyAxLjkzOGgtNi4yODNjLjA0Ny4zMjguMDguNjYuMDggMXMtLjAzMy42NzItLjA4IDFoNi4yNDRjLjM5NiAxLjE5NSAxLjUwOSAyLjA2MiAyLjgzNiAyLjA2MnptLTEtM2MwLS41NTEuNDQ4LTEgMS0xczEgLjQ0OSAxIDEtLjQ0OCAxLTEgMS0xLS40NDgtMS0xem0tMjAtLjA2MmMwIDIuNzYxIDIuMjM4IDUgNSA1czUtMi4yMzkgNS01LTIuMjM4LTUtNS01LTUgMi4yMzktNSA1em0yIDBjMC0xLjY1NCAxLjM0Ni0zIDMtM3MzIDEuMzQ2IDMgMy0xLjM0NiAzLTMgMy0zLTEuMzQ2LTMtM3ptNy45MzkgNC45NTVsNC4yMSAzLjE1N2MtLjA4OC4yODItLjE0OS41NzYtLjE0OS44ODggMCAxLjY1NyAxLjM0NCAzIDMgM3MzLTEuMzQzIDMtMy0xLjM0NC0zLTMtM2MtLjYxNSAwLTEuMTg2LjE4Ny0xLjY2Mi41MDRsLTQuMTk3LTMuMTQ4Yy0uMzI0LjU4OS0uNzI5IDEuMTI3LTEuMjAyIDEuNTk5em02LjA2MSA0LjA0NWMwLS41NTEuNDQ4LTEgMS0xczEgLjQ0OSAxIDEtLjQ0OCAxLTEgMS0xLS40NDktMS0xeiIvPjwvc3ZnPg=="></div>
+    <h3>Resourcefulness is abundant.</h3> 
+    <p>There are many possible methods to solve for this gap in supplies. Leverage personal networks. Look to identify paths of least resistance. Look for allies with passion. Be open to the unorthodox.</p></div>
+    <div class="section-head"><a name="groups"><h2>Getting Started: Finding and Creating Groups</h2></a></div>
+    <div class="section-body">
+      <p>If you have already created or are starting a local or regional group, please:</p>
+    
+      <div class="icon-number"><div>1</div></div>
+      <p>Use the search function in your locality’s popular social media as well as the internet. (Facebook Groups, Twitter, Whatsapp, etc., and Google) to see if there are already any OSCMS or other PPE generation groups organizing. Check local makerspace and fablab social media feeds for clues. Remember to try a few different location tags, such as major city, county, state or municipality.</p> 
+    
+      <div class="icon-number"><div>2</div></div>
+      <p>If there is no existing group, consider asking friends or contacts to launch the group with you. Review the “Roles and Responsibilities” section below for who you might recruit.</p>
+    
+      <div class="icon-number"><p>3</p></div>
+      <p>When choosing your geographic area of focus, think regionally. A state or country is likely too large to service; a small city might not support the level of involvement needed. Also consider any current travel restrictions that may limit the movement of raw material inputs to production sites to organizations in need-- such restrictions may create a boundary for your region.</p>
+    
+      <div class="icon-number"><p>4</p></div>
+      <p>If you want to leverage the OSCMS brand when creating a group, please name it "Open Source COVID-19 Medical Supplies - [Your Geographic Area]"</p>
+    
+      <div class="icon-number"><p>5</p></div>
+      <p>Please help us follow your work and “register” your group with us by completing our registration form.</p> 
+      <a href="" class="cta-btn">Register Your Group</a>
+    </div>
+    <div class="section-head"><a name="branding"><h2>OSCMS Branding</h2></a></div>
+    <div class="section-body">
+      <p>We’re happy for the OSCMS network to leverage our look and feel. Our linked simple branding guide can help you get started.</p>
+      <p>Using the recommended naming conventions and these images can make it easier for others to find your group in searches. This is intended to help you grow your local group.</p>
+      <a class="cta-btn" href="">See the Brand Guide</a>
+    </div>
+    <div class="section-head"><a name="roles"><h2>Functions, Roles and Responsibilities</h2></a></div>
+    <div class="section-body">
+      <h3>This proposed staffing model is not a one-size-fits-all model.</h3> 
+      <p>Consider this a starting point for tasks your group will need to consider. In most organizations/regions, people work across these roles. As your group grows, you can recruit additional people to take on tasks based on their relevant skills and connections, and roles can become more specialized.</p>
+
+      <h3>As you build your team, we recommend that critical roles be doubled (2 people per role, in separate households) in case of illness or other disruptions.</h3> 
+      <p>We foresee that as this crisis impacts more and more people personally, individual capacity to volunteer will fluctuate. Plan for this ahead of time and build in both redundancy and clear channels for communication.</p>
+
+      <h3>Your team should not meet in person (unless individuals in your group already are cohabitating)</h3>
+      <p>When exchanging supplies or other items, contactless delivery should be used. (High risk individuals should not be part of delivery networks.) You want to be distributed so that if one member of your organization becomes ill, the whole organization is not compromised.</p>
+
+      <p>Again, composition of each organization will be informed by local circumstances as well as talents available.</p>
+      <div class="usa-accordion">
+
+        <!-- Use the accurate heading level to maintain the document outline -->
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="true" aria-controls="a1">
+              Local Response Leadership
+            </button>
+        </h2>
+        <div id="a1" class="usa-accordion__content usa-prose">
+            <p>Role: Networking, managing and motivating volunteers, and thinking and acting strategically.</p>
+            <h4>Activate and amplify!</h4>
+            <ul>
+              <li>Identify and connect with organizations and individuals already running making and distribution efforts.</li>
+              <li>Look for opportunities to promote their efforts and build capacity. Fill the gaps in materials supply, volunteers, etc.</li>
+              <li>Instigate making and manufacturing efforts (e.g. surgical mask sewing) where there is none.</li>
+            </ul>
+            <h4>Build a team.</h4>
+            <ul>
+              <li>Help to set an inclusive culture and respectful, collaborative environment.</li>
+              <li>Model self-care and help team members set boundaries and curb burnout.</li>
+            </ul>
+            <h4>Provide an active link back to central OSMS.</h4>
+            <ul>
+              <li>Participate via #local-response-connect Slack channel.</li>
+              <li>Participate via Open Source COVID-19 Medical Supplies Facebook Group </li>
+              <li>Participate via Open Source COVID-19 Medical Supplies Local Response Leadership Facebook Group</li>
+              <li>Share operational successes to share back with central OSMS so that we can scale functioning models-- for example: financial tools your group may have leveraged to access raw materials; organizations that you engaged with in lieu of overwhelmed hospital procurement offices; or legal documents that enabled a local hospital to accept homemade supplies</li>
+            </ul>
+        </div>
+        
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a2">
+              Technical Project Management
+            </button>
+        </h2>
+        <div id="a2" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a3">
+              Hospital Relations
+            </button>
+        </h2>
+        <div id="a3" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a4">
+              Healthcare, Labor, Social Service Relations
+            </button>
+        </h2>
+        <div id="a4" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a5">
+              Manufacturer Relations
+            </button>
+        </h2>
+        <div id="a5" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a6">
+              Community Management
+            </button>
+        </h2>
+        <div id="a6" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a7">
+              Government Relations
+            </button>
+        </h2>
+        <div id="a7" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+        <h2 class="usa-accordion__heading">
+            <button class="usa-accordion__button" aria-expanded="false" aria-controls="a8">
+              Promotions and Media Relations
+            </button>
+        </h2>
+        <div id="a8" class="usa-accordion__content usa-prose">
+            <p>Accordion content</p>
+        </div>
+      </div>
+    </div>
+
+<div class="section-head"><a name="outreach"><h2>Outreach Guidance</h2></a></div>
+  <div class="section-body"></div>
+
+<div class="section-head"><a name="organizing"><h2>Organizing Tools</h2></a></div>
+  <div class="section-body">
+    <div class="usa-accordion">
+      <h2 class="usa-accordion__heading">
+          <button class="usa-accordion__button" aria-expanded="true" aria-controls="a1">
+            Facebook Groups
+          </button>
+      </h2>
+      <div id="a2" class="usa-accordion__content usa-prose">
+          <p>Accordion content lorem</p>
+      </div>
+      <h2 class="usa-accordion__heading">
+          <button class="usa-accordion__button" aria-expanded="true" aria-controls="a2">
+            WhatsApp Groups
+          </button>
+      </h2>
+      <div id="a3" class="usa-accordion__content usa-prose">
+          <p>Accordion content ipsum</p>
+      </div>
+      <h2 class="usa-accordion__heading">
+          <button class="usa-accordion__button" aria-expanded="true" aria-controls="a3">
+            Slack Channels
+          </button>
+      </h2>
+      <div id="a3" class="usa-accordion__content usa-prose">
+          <p>Accordion content dolor</p>
+      </div>
+    </div>
+  </div>
+
+<div class="section-head"><a name="community-mgmt"><h2>Online Community Management</h2></a></div>
+  <div class="section-body">
+    Social media is like a firehose. It will take effort, strategy, and teamwork to manage it effectively. Without care, there is a real risk of accidentally doing harm, whether in the form of individuals testing unsafe ideas, or shooting yourself in the foot because medical facilities lose trust in your organization. 
+
+    <p>The OSMS Moderator team has documented their learnings from managing a 60,000+ person member Facebook Group in our Facebook Guide.  Below, an abbreviated version:</p>
+    <a href="" class="cta-btn">Read the Full Facebook Guide</a>
+    <h3>Use the About section.</h3>  
+    <p>Articulate your mission and explain who you are.  This is doubly important if you are choosing to run a “private” Group (meaning one cannot see the discussion until one is approved as a member).</p> 
+    <p>Your About section is also an opportunity to create “signposts” to share immediate information on how prospective community members can get involved and take action.  (Example: <a href="">OSCMS SFBay About</a>)</p> 
+    <h3>Outline clear rules for participation in your group.</h3>
+    <p>You are welcome to take these directly from the central OSCMS group. (You can view the current rules at any time by visiting the <a href="">“About”</a> page and scrolling down.)</p>
+    <h3>Have criteria for member approval to screen bots and bad actors.</h3> 
+    <p>Require incoming members to agree to group rules.</p>
+    <p>Ask questions about why members are joining the group and what kinds of connections, expertise, or equipment they may have.</p>
+    <p>Watch for recently-created accounts, as these are typically bots.</p>
+    <p>Please also watch for postings that are marketing over priced PPE (see <a href="">Information Security</a> below).</p>
+
+    <h3>Minimize the amount of “noise” in your channel.</h3> 
+    <p>“Pin” essential information to the top in a master post and mark it as an announcement. Edit the post to add extra links as needed. Refresh the post every few days to add new info.</p>
+    <p>If your group starts to gain serious momentum and members and posting increase or lower in quality, consider requiring moderator approval for new posts.</p> 
+    <p>Create master threads to discuss particular topics. Suggested topics include:</p>
+    <ul>
+      <li>introductions thread</li>
+      <li>threads for individual types of supplies</li>
+      <li>thread for people to share needs that they have learned about</li>
+      <li>thread for manufacturers and businesses that want to get involved</li>
+      <li>thread for smaller-scale makers and makerspaces to share their capacity, etc.</li>
+    </ul>
+    <p>Consider posting these topics in advance of inviting others to join your Facebook group so that there is a structure in place to “catch” people as they filter in.</p>
+    <h3>Build a strong team of moderators and work to create multiple “shifts” so that the group is not left without moderation for extended periods of time.</h3>
+    <h3>Facilitate private communication for moderators outside of the Facebook group.</h3>
+    <p>We recommend using Slack for this. If you do this, make sure that you restrict settings so that individual moderators cannot create private channels. Transparency is key.</p>
+    <h3>Be vigilant about scams and intentional bad actors.</h3>
+    <p>Our Information Security section below will help you identify these types of requests.</p>
+
+  </div>
+<div class="section-head"><a name="infosec"><h2>Information Security</h2></a></div>
+  <div class="section-body">
+    <h3>One of the problems with this group’s size and level of public interest is that malicious actors are starting to come out of the woodwork.</h3>
+    <p>We have seen fake accounts attempting to sell medical products, people posing as physicians soliciting for donations, and personal information that was shared by well-intentioned members being scraped from posts and spammed relentlessly. There are enormous costs to this, as potential for huge monetary losses also reduces the overall credibility of this movement. Because of these scams, hospital systems may be increasingly resistant to working with you or to viewing your group’s work as safe.</p>
+    <p>To help keep you safe, and to protect the integrity of this group, we are adopting a few new policies:</p>
+    <ul>
+      <li>Be vigilant about screening incoming membership requests for bots.</li>
+      <li>Be skeptical of posts about buy-ins for large quantities of PPE and/or materials. You are welcome to reach out to the OSMS team (via your the Local Organizing PM’s Slack channel) for assistance with these questions. See Purchasing section.</li>
+      <li>If someone says they are connected to (or work for) a particular business, consider asking them to share links from their public web page. Check this against their email address to see if their domain (the part that comes after the @ symbol) matches the public website domain. If there is a mismatch, proceed with caution.</li> 
+      <li>Be especially wary of anyone who requires a purchase order before verifying the quality of the product. Be vigilant in your efforts to screen for these kinds of posts or messages and ban violators quickly. While there may be a person out there who does have this connection, we cannot verify it and more than likely, this is a scam. For large quantity buy ins, please see the above policy regarding verification.</li>
+      <li>Report any post that is perceived as a scam to Facebook for abusing their policies.</li> 
+      <li>Do not permit individuals to post personal data - email address, phone number, physical address, etc - and remove any that you find. This is to keep our members, and those whose information they may be sharing, safe.</li>
+      <li>Any individual who is found to be misrepresenting their affiliation with the OSCMS group should be immediately banned from the group.</li>
+    </ul>
+  </div>
+<div class="section-head"><a name="fundraising"><h2>Fundraising</h2></a></div>
+  <div class="section-body"></div>
+  <div class="section-head"><a name="purchasing"><h2>Purchasing PPE</h2></a></div>
+  <div class="section-body"></div>
+  <div class="section-head"><a name="reporting"><h2>Reporting Documentation</h2></a></div>
+  <div class="section-body"></div>
+  <div class="section-head"><a name="resources"><h2>Resource Links</h2></a></div>
+  <div class="section-body"></div>
+
+    <div style="height:350px;"> </div>
+    <script src="https://components.designsystem.digital.gov/dist/js/uswds.min.js"></script>
+    <script>
+    window.addEventListener('load', function() {
+      document.body.addEventListener('submit', function(e) {
+        // https://github.com/uswds/uswds/issues/2101
+        e.preventDefault();
+      }, true);
+    }, false);
+    </script>
+
+</div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+</body>
+</html> 
