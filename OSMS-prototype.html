@@ -86,6 +86,7 @@ body {
   padding-top: 20px;
   background-color:#f2f2f2;
   margin-right:5px solid black;
+  margin-top:75px;
 }
 
 /* Style the sidenav links and the dropdown button */
@@ -118,8 +119,9 @@ body {
   transform: translateX(10px);
   transition: .25s;
 }
-.sidenav img {
-  transform: scale(.85);
+header img {
+  width:170px;
+  margin:auto;
 }
 
 /* Main content */
@@ -144,6 +146,7 @@ body {
   padding: 0;
   background-image: url(https://opensourcemedicalsupplies.org/wp-content/uploads/2020/06/home_gradienblue.jpg);
   color:white;
+  padding-top:75px;
 }
 .hero-copy {
   padding-top:60px;
@@ -195,6 +198,18 @@ li {
   padding:10px;
   line-height: 40px;
 }
+.icon-number {
+  width: 20%;
+  float:left;
+}
+.number-body {
+  width: 80%;
+  float:left;
+}
+.number {
+  padding-top:20px;
+  height:100px;
+}
 .icon-img img {
   height:40px;
   width:40px;
@@ -230,7 +245,39 @@ thead {
     flex-shrink: 0;
     margin-right: .5rem;
 }
-
+.card {
+  text-decoration:none;
+}
+.resource {
+  border: 1px solid black;
+  border-radius:6px;
+  margin:5px;
+}
+.resource > h6 {
+  border-bottom:1px solid black;
+  font-size: 16px;
+  padding:5px 0;
+  margin: 0 20px;
+  color:darkblue;
+  text-decoration: none;
+}
+.resource > p {
+  padding:5px 0;
+  font-size:12px;
+  margin: 0 20px;
+  color:black;
+  text-decoration: none;
+}
+table {
+  width:100%;
+}
+header {
+  height:75px;
+  position: fixed;
+  background-color:white;
+  width:100%;
+  z-index: 999;
+}
 /* Some media queries for responsiveness */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
@@ -239,9 +286,10 @@ thead {
 </style>
 </head>
 <body>
-
-<div class="sidenav">
+<header>
   <img src="https://opensourcemedicalsupplies.org/wp-content/uploads/2020/06/OSMS-logo-stacked_1.svg">
+</header>
+<div class="sidenav">
   <h2 style=>Local Resource Guide</h2>
   <a href="#mission">Shared Mission & Priorities</a>
   <a href="#culture">Culture & Approach</a>
@@ -296,7 +344,7 @@ thead {
       <li>Cataloging and portraying the issues around COVID-19 in a robust way while providing current and accurate information, dispelling misinformation, and maintaining cybersecurity.</li>
       <li>Finding and evaluating open source medical supply solutions and amplifying/sharing them as widely as possible.</li>
       <li>Connecting with relevant communities (i.e. hospital systems in need, fabrication groups, design groups, philanthropy, etc.) and bringing them together to coordinate effectively and resiliently.</li>
-      <li>Understanding the prevalence of COVID-19 in real-time to provide accurate statistical insights as a complement to raw data.</il>
+      <li>Understanding the prevalence of COVID-19 in real-time to provide accurate statistical insights as a complement to raw data.</li>
       <li>Helping orchestrate local, distributed responses throughout communities around the globe to respond to outbreaks and shortages of necessary medical equipment and supplies through relationship building, communications strategy, marketing initiatives, and the organization of local responders.</li>
     </ul>
     <h3>This is a global supply chain crisis. The scale of what is needed is massive.</h3>
@@ -329,22 +377,26 @@ thead {
     <div class="section-body">
       <p>If you have already created or are starting a local or regional group, please:</p>
 
-      <div class="icon-number"><div>1</div></div>
-      <p>Use the search function in your locality’s popular social media as well as the internet. (Facebook Groups, Twitter, Whatsapp, etc., and Google) to see if there are already any OSCMS or other PPE generation groups organizing. Check local makerspace and fablab social media feeds for clues. Remember to try a few different location tags, such as major city, county, state or municipality.</p>
+      <div class="number"><div class="icon-number"><div>1</div></div>
+            <div class="number-body"><p>Use the search function in your locality’s popular social media as well as the internet. (Facebook Groups, Twitter, Whatsapp, etc., and Google) to see if there are already any OSCMS or other PPE generation groups organizing. Check local makerspace and fablab social media feeds for clues. Remember to try a few different location tags, such as major city, county, state or municipality.</p></div></div>
 
-      <div class="icon-number"><div>2</div></div>
-      <p>If there is no existing group, consider asking friends or contacts to launch the group with you. Review the “Roles and Responsibilities” section below for who you might recruit.</p>
+      <div class="number"><div class="icon-number"><div>2</div></div>
+            <div class="number-body"><p>If there is no existing group, consider asking friends or contacts to launch the group with you. Review the “Roles and Responsibilities” section below for who you might recruit.</p></div></div>
 
-      <div class="icon-number"><p>3</p></div>
-      <p>When choosing your geographic area of focus, think regionally. A state or country is likely too large to service; a small city might not support the level of involvement needed. Also consider any current travel restrictions that may limit the movement of raw material inputs to production sites to organizations in need-- such restrictions may create a boundary for your region.</p>
+      <div class="number"><div class="icon-number"><p>3</p></div>
+            <div class="number-body"><p>When choosing your geographic area of focus, think regionally. A state or country is likely too large to service; a small city might not support the level of involvement needed. Also consider any current travel restrictions that may limit the movement of raw material inputs to production sites to organizations in need-- such restrictions may create a boundary for your region.</p></div></div>
 
-      <div class="icon-number"><p>4</p></div>
-      <p>If you want to leverage the OSCMS brand when creating a group, please name it "Open Source COVID-19 Medical Supplies - [Your Geographic Area]"</p>
+      <div class="number"><div class="icon-number"><p>4</p></div>
+            <div class="number-body"><p>If you want to leverage the OSCMS brand when creating a group, please name it "Open Source COVID-19 Medical Supplies - [Your Geographic Area]"</p></div></div>
 
-      <div class="icon-number"><p>5</p></div>
-      <p>Please help us follow your work and “register” your group with us by completing our registration form.</p>
-      <a href="" class="cta-btn">Register Your Group</a>
+        <div class="number">
+          <div class="icon-number"><p>5</p></div>
+          <div class="number-body"><p>Please help us follow your work and “register” your group with us by completing our registration form.</p>
+            <a class=cta-btn href="">Register Your Group</a>
+          </div>
+        </div>
     </div>
+
     <div class="section-head"><a name="branding"><h2>OSCMS Branding</h2></a></div>
     <div class="section-body">
       <p>We’re happy for the OSCMS network to leverage our look and feel. Our linked simple branding guide can help you get started.</p>
@@ -466,7 +518,161 @@ thead {
     </ol>
     <h4>Hospitals: Direct Outreach</h4>
     <p>Hospitals may be difficult to work directly with because:</p>
-    <p>THIS IS WHERE I LEFT OFF, AND WHERE I SHOULD START.</p>
+    <ul>
+      <li>All hospital equipment and supplies are regulated to ensure standards of quality. This means that even if their PPE inventory might be low and health care providers may not have adequate protection, the institution is hard-pressed to publicly accept and provide PPE and supplies that have not met regulatory requirements (even production facilities need to be compliant and approved).  Read the Safety and Liability section in the <a href="">OSMS Medical Supply Guide</a>.  Liability is why some health care workers are experiencing formal <a href="">reprimands</a> and even <a href="">termination</a> for disclosing lack of adequate PPE.</li>
+      <li>The volume of supplies needed can be very high (hundreds of thousands per week).  These needs are often too great to be met by the efforts of individual makers—but can be met in part by a very well organized, distributed production model.</li>
+      <li>Many hospitals are currently overwhelmed by COVID-19 response, so they may not have the bandwidth to work with individuals.</li>
+    </ul>
+    <h5>Recommended Outreach Steps:</h5>
+    <ul>
+      <li>Look first on the hospital website to determine what the hospital needs.  Many hospitals are listing what PPE they are accepting.</li>
+      <li>Check to see whether the needs of your local hospitals or other medical services are listed in these (and other) online PPE demand/supply exchanges:</li>
+      <h6>International</h6>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>Covid19 Masks</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <h6>USA</h6>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>Get Us PPE</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>MakeMasks.org</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>Mask Match</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>Project N95</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>PPELink</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <h6>Local Examples</h6>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>New York: PPENow</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <a class="card" href="https://covid19masks.info/webapps/f?p=2222:1">
+        <div class="resource">
+          <h6>San Francisco Bay Area: The Crafty Avenger</h6>
+          <p>Lorem ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum dolor sit amet ipsum</p>
+        </div>
+      </a>
+      <li>When you call, ask to speak to the Procurement Manager or Supply Manager.</li>
+      <li>Make notes in one document (see suggested templates in <a href="#resources">Resources Links</a> below) with the following types of fields:</li>
+      <ul>
+        <li>Name, phone number, email address, and preferred method of contact.</li> 
+        <li>Supplies and quantities needed</li>
+        <li>If they are open to accepting locally-produced PPE</li>
+        <li>What designs they will accept</li>
+        <li>Next steps</li>
+        <li>Amount delivered</li>
+      </ul>
+      <li>Identify types and quantities of supplies needed. Record this even if they are requesting supplies you cannot furnish. You can provide this information to other resource-sharing networks.</li>
+      <li>Ask if they are working with any major donation drive campaigns (note who they are for follow-up collaboration).</li>
+      <p>If no PPE donation drives are happening, consider starting one.  Check in with nurses and medical workers’ unions, as they are known for running donation drives in other cities.</p>
+      <li>Ask if they are open to accepting locally-made supplies.</li>
+      <ul>
+        <li>Elicit any information about available supplies and/or patterns that they would like you to use.</li>
+        <li>Share the OSMS Design Guide, and point to designs that other hospitals or medical practitioners in the area are using / that you have in production.</li>
+        <li>Offer to deliver a physical prototype or sample for their review. Check back for feedback and help to iterate design as requested/able.</li>
+      </ul>
+      <li>Document procedures for notifying the facility that supplies are ready to be dropped off and/or dropoff or mailing procedures. (Your team may need to consolidate distributed production at an intermediary location before coordinating drop off at the facility.)</li>
+      <li>Tightly limit access to this information as part of information security practices (see Information Security section).</li>
+    </ul>
+    <h5>Hospitals: Indirect Outreach</h5>
+    <ul>
+      <li>Labor unions that represent nurses and medical workers may be interested in understanding your group’s capacity to provide for their members.  Reach out and build relationships.  They may even be able to help with getting designs approved, as well as distribution.</li>
+      <li>Your own personal network—and the collective network of your team— may drive indirect donation of new and locally manufactured supplies.  You may know practitioners in need personally, or see requests by medical for supplies in social media and in neighborhood forums.  Individual doctors, nurses and staff are personally accepting donations, and sharing quantities with colleagues.</li>
+      <p>In some communities, volunteer courier services—bicycle messengers and motorcycle clubs—are acting as point to point distribution networks.</p>
+    </ul>
+    <h4>Civic, Community and Social Servica Organizations</h4>
+    <p>Providing PPE to vulnerable community members reduces  transmission and slows the rate at which people present to the hospital.</p>
+    <p>These entities are more willing to accept maker-produced PPE and their needs are generally on a scale that is manageable for local production.  Outreach methods are similar  to hospitals above (internet research, social media, cold calling—and recording contact information and needs data as you work).</p>
+    <p>Types of organizations and “essential” workers (those that are working in localities with active “shelter in place”-type guidelines) that are in need include:</p>
+    <ul>
+      <li>Police departments</li>
+      <li>Fire departments</li>
+      <li>Urgent care facilities</li>
+      <li>Ambulance businesses</li>
+      <li>Nursing homes & lifetime care facilities</li>
+      <li>Sub-Acute and Long-Term Rehabilitation Facilities</li>
+      <li>Social services agencies</li>
+      <li>Retail / grocery workers (these have labor unions you can work through)</li>
+      <li>Distribution warehouse workers</li>
+      <li>Garbage and recycling workers</li>
+      <li>Homeless advocacy groups & shelters</li>
+      <li>Disability organizations (direct service)</li>
+      <li>Funeral homes</li>
+      <li>Vulnerable community members [people who need “buddies” for wellness checks, domestic violence organizations, prisoners and other detainees (jails, prisons, ICE detention, etc.]</li>
+      <li>Public health departments</li>
+      <li>Transit maintenance workers</li>
+      <li>Airport workers</li>
+      <li>Local donation drives, collecting commercially manufactured PPE and other supplies to distribute to local organizations in need</li>
+    </ul>
+    <h4>Maker and Crafter Community Outreach</h4>
+    <p>Local OSCMS groups can help with coordinating efforts, sharing <a href="">OSMS information</a>, and identifying suppliers, volunteers, and donation sites.</p>
+    <p>In many communities, distributed manufacturing is delivering large numbers of supplies by coordinating making efforts across individual makers and crafters.  People work at home, in garages and workshops independently, but are coordinated by online collaboration tools such as Facebook Groups, Slack, and custom websites (see <a href="#resources">Resource Links</a> below).</p>
+    <h5>Thousands of individuals and crafter groups are mobilizing to sew masks.</h5>
+    <ul>
+      <li>Check this <a href="">U.S. directory of sewing organizations</a>.</li>
+      <li>These groups have their own individual cultures and ways of operating. In building collaborations with them, it is important to respect the structures they have established and focus on identifying and communicating the value that you are able to provide to them, rather than on attempting to change their overall structures and operational models. (This value could be access to vetted designs, materials, or supplies such as 3D printed bias tape makers.)</li>
+      <li>For a more accessible entry point, OSMS has created a <a href="">guide specifically for sewists/crafters</a>.</li>
+      <li>We have also created a <a href="">guide for organizing cloth mask donations</a> for additional guidance regarding masks specifically.</li>
+      <li>Point makers to OSMS face or surgical masks resource document if additional in-depth information is needed.</li>
+    </ul>
+    <h5>Makerspaces, hackerspaces and FabLabs are operating in many communities to leverage digital fabrication tools to produce PPE and devices</h5>
+    <ul>
+      <li><a href="">Visit the OSMS Design Library for a list of PPE and devices</a></li>
+      <li>Guidelines for safe workplace guidelines for social distancing and for sterile working conditions are being developed (see <a href="resources">Resources Links</a>)</li>
+      <li>Some helpful indexes for finding these organizations:</li>
+      <p>Makerspaces: <a href="">https://makerspaces.make.co/</a></p>
+      <p>Nation of Makers member directory: <a href="">https://www.nationofmakers.us/member-directory</a></p>
+      <p>International FabLab Network:  <a href="">https://fabfoundation.org/global-community/</a></p>
+
+    </ul>
+    <h4>Manufacturer Outreach</h4>
+    <p>To address large-scale demands of hospitals, large-scale manufacturing capacity is generally required.</p>
+    <p>Conduct outreach to determine what manufacturing/machining/fabrication resources already exist in your area.</p>
+    <ul>
+      <li>If you are U.S.-based, connect with your state’s manufacturers.</li>
+      <ul>
+        <li>NIST Manufacturing Extension Partnership Program has a center in every state that is knowledgeable about the local manufacturing presence.  <a href="">Connect with Your Local MEP Center</a> (Or visit the #local-response-connect slack channel and search for “MEP”)</li>
+        <li>Check this <a href="">Thomas manufacturers database</a> of “Covid-19 Response Suppliers.”</li>
+      </ul>
+      <li>Other ways to locate production facilities:</li>
+      <ul>
+        
+        <li>Manufacturers associations </li>
+        <li>Local Chamber of Commerce </li>
+        <li>City or regional economic development departments</li>
+        <li>Industrial design, prototyping and product development houses </li>
+        <li>Large companies with local production facilities</li>
+        <li>Universities and colleges (engineering, design, business departments are connected to local industry)</li>
+        <li>Trade unions</li>
+        <li>Machine shops</li>
+      </ul>
+    </ul>
   </div>
 
 <div class="section-head"><a name="organizing"><h2>Organizing Tools</h2></a></div>
